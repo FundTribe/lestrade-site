@@ -192,9 +192,28 @@ textarea{min-height:100px;resize:vertical}
 footer.site{padding-block:1.5rem;font-family:var(--mono);font-size:.75rem;color:var(--fg-2);border-top:1px solid var(--line)}
 footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* rideau d'ouverture */
+.curtain{position:fixed;inset:0;z-index:50;pointer-events:none;display:grid;grid-template-columns:1fr 1fr}
+.curtain span{background:
+  repeating-linear-gradient(90deg,#7f2a1a 0 18px,#9a3522 18px 36px,#8a2f1e 36px 54px);
+  box-shadow:inset 0 0 80px rgba(0,0,0,.45);transform:translateX(0);animation:open 1.1s cubic-bezier(.7,0,.3,1) .35s forwards}
+.curtain span:last-child{animation-name:open-r}
+@keyframes open{to{transform:translateX(-102%)}}
+@keyframes open-r{to{transform:translateX(102%)}}
+.curtain::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(233,196,106,.55),transparent 45%);opacity:0;animation:spot 1.4s ease-out .3s forwards}
+@keyframes spot{20%{opacity:1}100%{opacity:0}}
+.hero .wrap>*{opacity:0;transform:translateY(14px);animation:rise .7s ease-out forwards}
+.hero .wrap>:nth-child(1){animation-delay:.9s}.hero .wrap>:nth-child(2){animation-delay:1.05s}
+.hero .wrap>:nth-child(3){animation-delay:1.2s}.hero .wrap>:nth-child(4){animation-delay:1.35s}.hero .wrap>:nth-child(5){animation-delay:1.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+body.no-intro .curtain{display:none}
+body.no-intro .hero .wrap>*{opacity:1;transform:none;animation:none}
+@media(prefers-reduced-motion:reduce){.curtain{display:none}.hero .wrap>*{opacity:1;transform:none;animation:none}}
+
 </style>
 </head>
 <body>
+<div class="curtain" id="curtain" aria-hidden="true"><span></span><span></span></div>
 
 <header>
   <div class="wrap">
@@ -396,6 +415,12 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 </footer>
 
 <script>
+(function(){
+  // rideau une seule fois par session ; retiré du DOM à la fin
+  var c=document.getElementById('curtain');
+  try{if(sessionStorage.getItem('intro')){document.body.classList.add('no-intro');return}sessionStorage.setItem('intro','1')}catch(e){}
+  setTimeout(function(){c.remove()},1800);
+})();
 (function(){var b=document.getElementById('burger'),n=document.getElementById('mainnav');
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰'});
 n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.textContent='☰';b.setAttribute('aria-expanded','false')})});})();
