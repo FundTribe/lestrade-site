@@ -14,6 +14,14 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="L'Estrade">
+<meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">
@@ -70,20 +78,43 @@ h3{font-size:1.35rem;font-weight:600}
 p{margin:0;max-width:62ch}
 a{color:inherit}
 .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid var(--fg);color:var(--fg);background:transparent;cursor:pointer;transition:transform .15s}
+.btn{display:inline-flex;text-align:center;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid var(--fg);color:var(--fg);background:transparent;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
 .btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--spot);outline-offset:3px}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
 
 /* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
 .logo{font-family:var(--display);font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.01em}
 .logo span{color:var(--accent)}
 nav{display:flex;gap:1.2rem;font-family:var(--display);font-size:.95rem}
 nav a{text-decoration:none;color:var(--fg-2)}
 nav a:hover{color:var(--fg)}
-@media(max-width:700px){nav{display:none}}
+.burger{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;width:42px;height:42px;cursor:pointer;color:var(--fg);font-size:1.3rem;line-height:1}
+@media(max-width:760px){
+  nav{display:none}
+  nav.open{display:grid;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 20px 1.2rem;gap:.9rem;font-size:1.15rem}
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  header .btn{display:none}
+  header{padding-top:env(safe-area-inset-top,0px)}
+  .hero{padding-block:3rem 2.5rem}
+  h1{font-size:clamp(2.3rem,11vw,3.2rem)}
+  .hero .cta .btn{width:100%;justify-content:center}
+  .door{padding:2rem 20px}
+  section{padding-block:3rem}
+  .offer .btn{width:100%;justify-content:center}
+  body{font-size:1.05rem}
+}
+/* barre d'action fixe sur mobile */
+.mobile-cta{display:none}
+@media(max-width:760px){
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding:.7rem 20px calc(.7rem + env(safe-area-inset-bottom,0px))}
+  .mobile-cta .btn{width:100%;justify-content:center}
+  footer.site{padding-bottom:calc(5rem + env(safe-area-inset-bottom,0px))}
+}
+@media(display-mode:standalone){header{position:sticky}}
+input,select,textarea{font-size:16px}
 
 /* hero */
 .hero{padding-block:4.5rem 3.5rem;position:relative;overflow:hidden}
@@ -168,12 +199,14 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 <header>
   <div class="wrap">
     <a class="logo" href="#top">L'Estrade<span>.</span></a>
-    <nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mainnav">☰</button>
+    <nav id="mainnav">
       <a href="#pros">Professionnels</a>
       <a href="#comediens">Comédiens</a>
       <a href="#offres">Offres</a>
       <a href="#apropos">À propos</a>
       <a href="#faq">FAQ</a>
+      <a href="#contact">Appel découverte</a>
     </nav>
     <a class="btn primary" href="#contact">Appel découverte</a>
   </div>
@@ -185,7 +218,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
     <h1>Monter sur l'estrade sans que la voix tremble.</h1>
     <p class="lead">Coaching individuel et ateliers pour parler avec aisance, en réunion, en pitch, en entretien ou sur scène.</p>
     <div class="cta">
-      <a class="btn primary" href="#contact">Réserver un appel découverte gratuit</a>
+      <a class="btn primary" href="#contact">Appel découverte gratuit</a>
       <a class="btn" href="#offres">Voir les offres</a>
     </div>
     <span class="note">20 min · sans engagement · en visio</span>
@@ -353,6 +386,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   </div>
 </section>
 
+<div class="mobile-cta"><a class="btn primary" href="#contact">Réserver un appel découverte</a></div>
+
 <footer class="site">
   <div class="wrap">
     <span>© 2026 L'Estrade · Coaching de prise de parole</span>
@@ -361,6 +396,9 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 </footer>
 
 <script>
+(function(){var b=document.getElementById('burger'),n=document.getElementById('mainnav');
+b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰'});
+n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.textContent='☰';b.setAttribute('aria-expanded','false')})});})();
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
   var btn=this.querySelector('button[type=submit]'),toast=document.getElementById('toast');
