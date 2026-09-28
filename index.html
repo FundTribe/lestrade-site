@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'Estrade · Coaching de prise de parole pour professionnels et comédiens</title>
+<meta name="description" content="Coaching individuel et ateliers pour être à l'aise à l'oral : réunion, pitch, entretien, scène et casting. Paris et visio. Appel découverte gratuit de 20 minutes.">
+<link rel="canonical" href="https://www.lestrade.fr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="L'Estrade · Monter sur l'estrade sans que la voix tremble">
+<meta property="og:description" content="Coaching de prise de parole pour professionnels et comédiens. Paris et visio.">
+<meta property="og:url" content="https://www.lestrade.fr/">
+<meta property="og:image" content="https://www.lestrade.fr/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "L'Estrade",
+  "description": "Coaching de prise de parole en public pour professionnels et comédiens.",
+  "url": "https://www.lestrade.fr/",
+  "email": "contact@lestrade.fr",
+  "areaServed": "Paris, France et visio",
+  "priceRange": "€€",
+  "makesOffer": [
+    {"@type":"Offer","name":"Appel découverte","price":"0","priceCurrency":"EUR"},
+    {"@type":"Offer","name":"Coaching individuel","price":"120","priceCurrency":"EUR"},
+    {"@type":"Offer","name":"Atelier collectif","price":"190","priceCurrency":"EUR"}
+  ]
+}
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html{color-scheme:light}
+[hidden]{display:none!important}
+img{max-width:100%}
+/* Layout: a single column stage; the left edge carries a thin "rideau" stripe, sections are separated by a spotlight rule; two audience panels sit side by side like two doors of the same theatre. */
+:root{
+  --bg:#f5f4ef;            /* chaux chaude, léger biais vert-gris */
+  --bg-2:#ebe9e1;
+  --fg:#17191c;            /* encre */
+  --fg-2:#585b60;
+  --line:#d3d1c8;
+  --accent:#b8412a;        /* rouge de rideau, désaturé */
+  --accent-fg:#ffffff;
+  --spot:#e9c46a;          /* lumière de poursuite */
+  --card:#ffffff;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15161a;--bg-2:#1d1f25;--fg:#efece4;--fg-2:#a7a49b;--line:#33363d;
+  --accent:#e0664c;--accent-fg:#15161a;--spot:#e9c46a;--card:#1d1f25;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15161a;--bg-2:#1d1f25;--fg:#efece4;--fg-2:#a7a49b;--line:#33363d;
+  --accent:#e0664c;--accent-fg:#15161a;--spot:#e9c46a;--card:#1d1f25;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.125rem;line-height:1.55;margin:0}
+.wrap{max-width:1100px;margin-inline:auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0;font-weight:800}
+h1{font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.015em}
+h3{font-size:1.35rem;font-weight:600}
+p{margin:0;max-width:62ch}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid var(--fg);color:var(--fg);background:transparent;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--spot);outline-offset:3px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
+.logo{font-family:var(--display);font-weight:800;font-size:1.3rem;text-decoration:none;letter-spacing:-.01em}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:1.2rem;font-family:var(--display);font-size:.95rem}
+nav a{text-decoration:none;color:var(--fg-2)}
+nav a:hover{color:var(--fg)}
+@media(max-width:700px){nav{display:none}}
+
+/* hero */
+.hero{padding-block:4.5rem 3.5rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto auto -40% 55%;width:60vw;max-width:720px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--spot) 45%,transparent),transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;gap:1.6rem}
+.hero p.lead{font-size:1.35rem;max-width:32ch;color:var(--fg-2)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.hero .note{font-family:var(--mono);font-size:.8rem;color:var(--fg-2)}
+
+/* audiences */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.door{background:var(--bg-2);padding:2.5rem 1.6rem;display:grid;gap:1rem;align-content:start;min-width:0}
+.door ul{margin:0;padding-left:1.2rem;display:grid;gap:.35rem}
+.door .who{font-family:var(--mono);font-size:.8rem;color:var(--fg-2)}
+
+section{padding-block:4rem}
+section .wrap{display:grid;gap:1.5rem}
+.rule{height:1px;background:linear-gradient(90deg,var(--spot),transparent);max-width:220px}
+
+/* method */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem 2.5rem}
+.method div{display:grid;gap:.4rem;min-width:0}
+.method b{font-family:var(--display);font-weight:600;font-size:1.1rem}
+.method p{font-size:1rem;color:var(--fg-2)}
+
+/* offers */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.offer{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem;display:grid;gap:.8rem;align-content:start;min-width:0}
+.offer.featured{border-color:var(--accent);box-shadow:0 12px 40px -24px var(--accent)}
+.offer .price{font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.offer .price small{font-family:var(--mono);font-size:.75rem;font-weight:400;letter-spacing:.05em;color:var(--fg-2);margin-left:.3rem}
+.offer ul{margin:0;padding-left:1.1rem;font-size:1rem;display:grid;gap:.3rem}
+.offer .btn{justify-self:start;margin-top:.4rem}
+.hint{font-family:var(--mono);font-size:.78rem;color:var(--fg-2)}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:center}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:14px;background:
+  radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--spot) 55%,transparent),transparent 55%),var(--bg-2);
+  border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:.8rem;color:var(--fg-2);text-align:center;padding:1rem}
+.stats{display:flex;flex-wrap:wrap;gap:2rem}
+.stats div{display:grid}
+.stats b{font-family:var(--display);font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums}
+.stats span{font-family:var(--mono);font-size:.75rem;color:var(--fg-2)}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+blockquote{margin:0;padding:1.4rem;border-left:3px solid var(--spot);background:var(--bg-2);border-radius:0 12px 12px 0;display:grid;gap:.8rem;min-width:0}
+blockquote p{font-style:italic;font-size:1.05rem}
+blockquote footer{font-family:var(--mono);font-size:.75rem;color:var(--fg-2)}
+
+/* faq */
+details{border-top:1px solid var(--line);padding-block:1rem}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::after{content:"+";color:var(--accent);font-weight:400}
+details[open] summary::after{content:"–"}
+details p{padding-top:.7rem;color:var(--fg-2);font-size:1.05rem}
+
+/* contact */
+.contact{background:var(--fg);color:var(--bg)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+.contact .eyebrow{color:var(--spot)}
+form{display:grid;gap:.8rem}
+label{display:grid;gap:.3rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--bg) 70%,transparent)}
+input,select,textarea{font:inherit;font-family:var(--body);padding:.7rem .9rem;border-radius:8px;border:1px solid color-mix(in srgb,var(--bg) 35%,transparent);background:color-mix(in srgb,var(--bg) 8%,transparent);color:var(--bg);width:100%;min-width:0}
+textarea{min-height:100px;resize:vertical}
+.contact .btn.primary{justify-self:start}
+.toast{font-family:var(--mono);font-size:.85rem;color:var(--spot)}
+.contact .mail{font-family:var(--mono);font-size:.9rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.contact .mail button{font:inherit;font-size:.75rem;background:transparent;border:1px solid color-mix(in srgb,var(--bg) 40%,transparent);color:var(--bg);border-radius:999px;padding:.25rem .7rem;cursor:pointer}
+
+footer.site{padding-block:1.5rem;font-family:var(--mono);font-size:.75rem;color:var(--fg-2);border-top:1px solid var(--line)}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">L'Estrade<span>.</span></a>
+    <nav>
+      <a href="#pros">Professionnels</a>
+      <a href="#comediens">Comédiens</a>
+      <a href="#offres">Offres</a>
+      <a href="#apropos">À propos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn primary" href="#contact">Appel découverte</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Coaching de prise de parole · Paris &amp; visio</span>
+    <h1>Monter sur l'estrade sans que la voix tremble.</h1>
+    <p class="lead">Coaching individuel et ateliers pour parler avec aisance, en réunion, en pitch, en entretien ou sur scène.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Réserver un appel découverte gratuit</a>
+      <a class="btn" href="#offres">Voir les offres</a>
+    </div>
+    <span class="note">20 min · sans engagement · en visio</span>
+  </div>
+</div>
+
+<div class="split">
+  <div class="door" id="pros">
+    <span class="eyebrow">Pour les professionnels</span>
+    <h2>Convaincre en réunion, en pitch, en entretien.</h2>
+    <span class="who">Managers · fondateurs · commerciaux · candidats</span>
+    <ul>
+      <li>Structurer un message en 3 idées qui restent</li>
+      <li>Tenir la salle quand on est contredit</li>
+      <li>Poser sa voix sans forcer, même en visio</li>
+      <li>Improviser une réponse à une question piège</li>
+    </ul>
+    <p>Un dirigeant qui présente ses résultats et une candidate en entretien ont le même adversaire : le trac qui accélère le débit et efface le regard. On travaille là-dessus en premier.</p>
+  </div>
+  <div class="door" id="comediens">
+    <span class="eyebrow">Pour les comédiens</span>
+    <h2>Habiter le plateau, tenir la note, passer le casting.</h2>
+    <span class="who">Comédiens · élèves de conservatoire · voix-off</span>
+    <ul>
+      <li>Souffle et projection : porter sans casser la voix</li>
+      <li>Présence et adresse : jouer vers le public, pas vers le sol</li>
+      <li>Préparer une scène de casting en 48 h</li>
+      <li>Auto-cassette et prise de parole en interview</li>
+    </ul>
+    <p>Le texte est su. Ce qui manque en audition, c'est le corps qui se pose et la première réplique qui arrive sans précipitation. C'est précisément ce qu'on répète.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Le socle commun</span>
+    <h2>Une même méthode, deux terrains.</h2>
+    <div class="rule"></div>
+    <div class="method">
+      <div><b>Le souffle</b><p>Respiration basse, appuis, débit. Le trac se règle d'abord par le corps, pas par la volonté.</p></div>
+      <div><b>La voix</b><p>Placement, projection, articulation. Une voix qu'on n'a pas besoin de forcer pour être entendue au fond de la salle.</p></div>
+      <div><b>Le regard</b><p>Adresse, silences, gestion des interruptions. Regarder une personne à la fois plutôt qu'un plafond.</p></div>
+      <div><b>Le texte</b><p>Structure d'un pitch ou d'une scène : une accroche, une idée par mouvement, une chute qu'on prépare.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="offres">
+  <div class="wrap">
+    <span class="eyebrow">Offres</span>
+    <h2>Trois façons de travailler ensemble.</h2>
+    <div class="rule"></div>
+    <div class="offers">
+      <div class="offer">
+        <h3>Appel découverte</h3>
+        <div class="price">Gratuit<small>20 MIN</small></div>
+        <p>On parle de votre prochaine prise de parole et de ce qui vous bloque. Vous repartez avec un premier exercice, que vous continuiez ou non.</p>
+        <a class="btn" href="#contact">Réserver</a>
+      </div>
+      <div class="offer featured">
+        <span class="eyebrow">Le plus demandé</span>
+        <h3>Coaching individuel</h3>
+        <div class="price">120 €<small>/ SÉANCE · 1 H</small></div>
+        <ul>
+          <li>Séance en présentiel (Paris) ou en visio</li>
+          <li>Travail sur votre vrai texte, pitch ou scène</li>
+          <li>Enregistrement vidéo et débrief entre les séances</li>
+          <li>Pack 5 séances : 550 €</li>
+        </ul>
+        <a class="btn primary" href="#contact">Commencer</a>
+      </div>
+      <div class="offer">
+        <h3>Ateliers &amp; entreprises</h3>
+        <div class="price">Dès 190 €<small>/ PERS. · JOURNÉE</small></div>
+        <ul>
+          <li>Ateliers collectifs de 6 à 10 personnes</li>
+          <li>Présentiel ou visio, 1 journée ou 2 demi-journées</li>
+          <li>Intra-entreprise sur devis (équipe commerciale, comité de direction)</li>
+        </ul>
+        <a class="btn" href="#contact">Demander le programme</a>
+      </div>
+    </div>
+    <p class="hint">Tarifs indicatifs à confirmer. Formations finançables par les OPCO une fois la certification Qualiopi obtenue.</p>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="wrap">
+    <div class="about">
+      <div class="portrait">Votre portrait ici<br>(photo ou extrait vidéo de vous en train de parler)</div>
+      <div style="display:grid;gap:1.2rem">
+        <span class="eyebrow">À propos</span>
+        <h2>Formé sur les planches, rodé en salle de réunion.</h2>
+        <p>Ici, votre parcours en quelques lignes : formation de comédien, expérience en entreprise, ce qui vous a amené à enseigner. Trois phrases suffisent si elles sont concrètes. Les gens réservent un coach, pas une méthode.</p>
+        <div class="stats">
+          <div><b>12</b><span>ANS DE SCÈNE</span></div>
+          <div><b>400+</b><span>PERSONNES ACCOMPAGNÉES</span></div>
+          <div><b>30</b><span>ENTREPRISES CLIENTES</span></div>
+        </div>
+        <p class="hint">Chiffres à remplacer par les vôtres.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Ils sont montés sur l'estrade</span>
+    <h2>Ce qui change après quelques séances.</h2>
+    <div class="rule"></div>
+    <div class="quotes">
+      <blockquote>
+        <p>« J'ai pitché devant trois fonds en une semaine. Pour la première fois, je regardais les gens au lieu de mes slides. »</p>
+        <footer>Fondatrice, start-up B2B · témoignage d'exemple</footer>
+      </blockquote>
+      <blockquote>
+        <p>« On a travaillé la première réplique jusqu'à ce qu'elle arrive posée. Casting obtenu. »</p>
+        <footer>Comédien, 29 ans · témoignage d'exemple</footer>
+      </blockquote>
+      <blockquote>
+        <p>« Mon équipe commerciale parle moins vite et écoute plus. Le taux de closing a suivi. »</p>
+        <footer>Directeur commercial · témoignage d'exemple</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions fréquentes</span>
+    <h2>Avant de réserver.</h2>
+    <div>
+      <details><summary>Je suis très timide, est-ce que c'est pour moi ?</summary><p>Oui. La plupart des personnes accompagnées arrivent avec un trac qui les handicape depuis des années. On commence par le souffle et le corps, pas par la performance.</p></details>
+      <details><summary>Combien de séances faut-il ?</summary><p>Pour une échéance précise (pitch, entretien, casting), 3 à 5 séances suffisent en général. Pour transformer durablement sa façon de parler, comptez un cycle de 8 à 10 séances.</p></details>
+      <details><summary>Le coaching en visio fonctionne-t-il vraiment ?</summary><p>Oui, et c'est même un bon terrain d'entraînement : la plupart des réunions se font aujourd'hui à l'écran. Pour le travail de scène, le présentiel reste préférable.</p></details>
+      <details><summary>Est-ce finançable par mon entreprise ?</summary><p>Les ateliers et le coaching peuvent être pris en charge dans le plan de développement des compétences de votre employeur. Une convention de formation vous est fournie sur demande.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div style="display:grid;gap:1.2rem">
+      <span class="eyebrow">Appel découverte</span>
+      <h2>Racontez-moi votre prochaine prise de parole.</h2>
+      <p>20 minutes en visio pour comprendre ce qui vous bloque et vous proposer une première piste. Réponse sous 24 h ouvrées.</p>
+      <div class="mail"><span id="mail">contact@lestrade.fr</span><button type="button" id="copyMail">Copier</button></div>
+      
+    </div>
+    <form id="contactForm" action="https://formspree.io/f/VOTRE_ID" method="POST">
+      <label>Votre nom<input id="f-name" name="name" required autocomplete="name"></label>
+      <label>E-mail<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+      <label>Vous êtes<select id="f-profile" name="profile">
+        <option>Professionnel·le en entreprise</option>
+        <option>Comédien·ne</option>
+        <option>Responsable formation / RH</option>
+        <option>Autre</option>
+      </select></label>
+      <label>Votre prochaine prise de parole<textarea id="f-msg" name="message" placeholder="Ex. : un pitch devant des investisseurs le 15 novembre"></textarea></label>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="Nouvelle demande d'appel découverte · L'Estrade">
+      <button class="btn primary" type="submit">Demander un appel</button>
+      <span class="toast" id="toast" hidden>Demande enregistrée. Vous recevrez une proposition de créneau par e-mail.</span>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 L'Estrade · Coaching de prise de parole</span>
+    <span><a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]'),toast=document.getElementById('toast');
+  btn.disabled=true;btn.textContent='Envoi…';
+  try{
+    var r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
+    if(r.ok){toast.hidden=false;this.reset();btn.textContent='Envoyé';}
+    else{throw new Error('bad status')}
+  }catch(err){
+    toast.hidden=false;toast.textContent="L'envoi a échoué. Écrivez-nous directement à contact@lestrade.fr.";
+    btn.disabled=false;btn.textContent='Demander un appel';
+  }
+});
+document.getElementById('copyMail').addEventListener('click',function(){
+  var t=document.getElementById('mail'),b=this;
+  function done(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1500)}
+  try{navigator.clipboard.writeText(t.textContent).then(done).catch(sel)}catch(err){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+</script>
+
+</body>
+</html>
